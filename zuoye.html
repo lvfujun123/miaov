@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<style>
+			.dianjiwrap{
+				width: 400px;
+				height: 400px;
+				padding-left:24px;
+			}
+			.dianji_hang{
+				padding-top: 20px;
+				height:40px ;
+				padding-bottom:22px;
+				
+			}
+			#dianji{
+				width:100px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				background: red;
+				color: #fff;	
+			}
+			.dianji_left{
+				width:270px;
+				height: 40px;
+				line-height: 40px;
+				font-size:24px;
+				color: #000;
+				font-weight: bold;
+			}
+			#dianji_bot{
+				width: 100px;
+				height: 100px;
+				border: 4px solid #393129;
+				background: #fff;
+			}
+			#huifuwrap{
+				width: 235px;
+				height: 165px;
+				border: 20px solid #9c949c;
+				padding: 16px 32px 19px 33px;
+				position: absolute;
+				left:50%;
+				top: 50%;
+				margin-left:-115px;
+				margin-top:-82px;
+				display: none;
+				z-index: 999;
+				background: #fff;
+			}
+			.liebiao{
+				width: 235px;
+				padding-bottom: 14px;
+				
+			}
+			.item{
+				width: 235px;
+				height: 32px;
+				padding-bottom: 9px;
+			}
+			.item a:hover{
+				border: 1px solid #000;
+				width: 34px;
+				height: 30px;
+			}
+			.item_left{
+				float: left;
+				width:113px ;
+				height: 32px;
+				line-height: 32px;
+				font-size: 16px;
+				color: #000;
+			}
+			.text{
+				float: left;
+				width: 36px;
+				height:32px ;
+				line-height:32px ;
+				color: #fff;
+				margin-left: 4px;
+				text-align: center;
+			}
+			.text1{
+				background: #9cce00;
+			}
+			.text2{
+				background: #efbd00;
+			}
+			.text3{
+				background: #5a94ef;
+			}
+			.item1 .text{
+				width:34px ;
+				height:30px;
+				border: 1px solid #c0c0c0;
+				background: #efefef;
+				color: #848c8c;
+			}
+			.item1 a:hover{
+				background: yellow;
+				border:1px solid #000;
+			}
+			#box{
+				width: 235px;
+				text-align: center;
+				
+			}
+			#reset,#submit{
+				width: 60px;
+				height: 32px;
+				background: #002952;
+				font-size: 14px;
+				color: #fff;
+			}
+			#submit{
+				border: 1px solid #efbd6b;
+			}
+			#bg{
+				position:absolute;
+				top:0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: #000;
+				opacity: 0.5;
+				filter:alpha(opacity=50);
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="dianjiwrap">
+			<p class="dianji_hang">
+				<label class="dianji_left">请为下面的DIV设置样式：</label>
+				<input type="button" value="点击设置"  id="dianji" />
+			</p>
+			<p id="dianji_bot"></p>
+		</div>
+		<div id="bg"></div>
+		<div id="huifuwrap">
+			<ul class="liebiao">
+			<li class="item clearfix">
+				<span class="item_left">请选择背景色：</span>
+				<a href="#" class="text text1" id="red">红</a>
+				<a href="#" class="text text2" id="yellow">黄</a>
+				<a href="#" class="text text3" id="blue">蓝</a>			
+			</li>
+			<li class="item item1 clearfix">
+				<span class="item_left">请选择宽(px)：</span>
+				<a href="#" class="text text4" id="width200">200</a>
+				<a href="#" class="text text5" id="width300">300</a>
+				<a href="#" class="text text6" id="width400">400</a>			
+			</li>
+			<li class="item item1 clearfix">
+				<span class="item_left">请选择高(px)：</span>
+				<a href="#" class="text text4" id="height200">200</a>
+				<a href="#" class="text text5" id="height300">300</a>
+				<a href="#" class="text text6" id="height400">400</a>			
+			</li>
+			</ul>
+			<p class="box">
+				<input type="reset"  value="恢复" id="reset"/>
+				<input type="submit"  value="确定" id="submit"/>
+			</p>
+		</div>
+		<script>
+			var dianji = document.getElementById("dianji");
+			var huifuwrap = document.getElementById("huifuwrap");
+			var dianji_bot = document.getElementById("dianji_bot");
+			var red = document.getElementById("red");
+			var yellow = document.getElementById("yellow");
+			var blue = document.getElementById("blue");
+			var box = document.getElementById("box");
+			var reset = document.getElementById("reset");
+			var submit = document.getElementById("submit");
+			var width200 = document.getElementById("width200");
+			var width300 = document.getElementById("width300");
+			var width400 = document.getElementById("width400");
+			var height200 = document.getElementById("height200");
+			var height300 = document.getElementById("height300");
+			var height400 = document.getElementById("height400");
+			var bg = document.getElementById("bg");
+			dianji.onclick = function (){
+				huifuwrap.style.display="block";
+				bg.style.display="block";
+			}
+			reset.onclick = function (){
+				dianji_bot.style.width="100px";
+				dianji_bot.style.height="100px";
+				dianji_bot.style.border="4px solid #393129";
+				dianji_bot.style.background="#fff";
+			}
+			submit.onclick = function (){
+				huifuwrap.style.display="none";
+				bg.style.display="none";
+			}
+			red.onclick = function (){
+				dianji_bot.style.background="red";
+				red.style.background="red";
+			}
+			width200.onclick = function (){
+				dianji_bot.style.background="red";
+				//width200.style.background="red";
+				dianji_bot.style.width="200px";
+			}
+			width300.onclick = function (){
+				dianji_bot.style.background="yellow";
+				//width300.style.background="yellow";
+				dianji_bot.style.width="300px";
+			}
+			width400.onclick = function (){
+				dianji_bot.style.background="blue";
+				//width400.style.background="blue";
+				dianji_bot.style.width="400px";
+			}
+			height200.onclick = function (){
+				dianji_bot.style.background="red";
+				//height200.style.background="red";
+				dianji_bot.style.height="200px";
+			}
+			height300.onclick = function (){
+				dianji_bot.style.background="yellow";
+				//height300.style.background="yellow";
+				dianji_bot.style.height="300px";
+			}
+			height400.onclick = function (){
+				dianji_bot.style.background="blue";
+				//height400.style.background="blue";
+				dianji_bot.style.height="400px";
+			}
+		
+			yellow.onclick = function (){
+				dianji_bot.style.background="yellow";
+				yellow.style.background="yellow";
+				
+			}
+		
+			blue.onclick = function (){
+				dianji_bot.style.background="blue";
+				blue.style.background="blue";
+				
+			}
+		
+		</script>
+	</body>
+</html>
